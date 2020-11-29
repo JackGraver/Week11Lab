@@ -17,8 +17,9 @@ public class AccountService {
             if (password.equals(user.getPassword())) {
                 Logger.getLogger(AccountService.class.getName()).log(Level.INFO, "Successful login by {0}", email);
                 
-                String to = user.getEmail();
-                String subject = "Notes App Login";
+                //String to = user.getEmail();
+                String to = "Week11LabWEB@gmail.com";
+                String subject = "Notes App Password Recovery";
                 String template = path + "/emailtemplates/login.html";
                 
                 HashMap<String, String> tags = new HashMap<>();
@@ -29,9 +30,13 @@ public class AccountService {
                 GmailService.sendMail(to, subject, template, tags);
                 return user;
             }
-        } catch (Exception e) {
-        }
+        } catch (Exception e) {}
         
         return null;
+    }
+    
+    public boolean forgotPassword(String email, String path) {
+        
+        return true;
     }
 }
